@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SIGenerator.Tests.TestClassDiagrams.TestTableClassNoPrimaryKey" Collapsed="true">
+    <Position X="4" Y="2.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TestClassDiagrams\TestTableClassNoPrimaryKey.cs</FileName>
+      <NewMemberFileName>TestClassDiagrams\TestTableClass.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
