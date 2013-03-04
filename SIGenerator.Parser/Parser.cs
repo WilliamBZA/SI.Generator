@@ -16,10 +16,24 @@ namespace SIGenerator.Parser
         {
             var classDiagram = ReadFile(classDiagramLocation);
 
-            var callingAssembly = Assembly.GetCallingAssembly();
+            var ass = AppDomain.CurrentDomain.GetAssemblies();
+
+            var t =  (from assembly in ass
+                    let type = assembly.GetType("SIGenerator.Tests.TestClassDiagrams.TestTableClass", false, false)
+                    where type != null
+                    select type).FirstOrDefault();
 
             var classesInDiagram = (from c in classDiagram.Class
-                                    let classType = callingAssembly.GetType(c.Name, true)
+                                    let classType = Type.GetType(c.Name, null, (loadedAssembly, typeName, ignoreCase) =>
+                                    {
+                                        var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+
+                                        return (from assembly in assemblies
+                                                let type = assembly.GetType(typeName, false, false)
+                                                where type != null
+                                                select type).FirstOrDefault();
+
+                                    }, true)
                                     let tableAttributes = (classType.GetCustomAttributes(typeof(TableAttribute), true).Select(o => (TableAttribute)o)).FirstOrDefault()
                                     where tableAttributes != null
                                     select new ClassSummary
@@ -46,8 +60,6 @@ namespace SIGenerator.Parser
             var formatter = new StandardSIFormatter(summary);
             return formatter.FormatIntoObject();
         }
-
-        
 
         private TableColumnProperties ExtractColumnProperties(Type classType)
         {

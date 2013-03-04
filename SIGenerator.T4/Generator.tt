@@ -1,0 +1,33 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="System.Windows.Forms" #>
+<#@ assembly name="C:\Users\bbdnet0890\Desktop\New folder\SI.Generator\SIGenerator.Tests\bin\Debug\SIGenerator.Tests.dll" #>
+<#@ assembly name="C:\Users\bbdnet0890\Desktop\New folder\SI.Generator\SIGenerator.Parser\bin\Debug\SIGenerator.Parser.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="EnvDTE" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@include file="MultipleOutputHelper.ttinclude"
+#><# var classDiagramLocation = @"C:\Users\bbdnet0890\Desktop\New folder\SI.Generator\SIGenerator.Tests\TestClassDiagrams\AccountHolderDiagram.cd"; #>
+<#
+	var manager = Manager.Create(Host, GenerationEnvironment);
+
+	var parser = new SIGenerator.Parser.Parser();
+	var siFiles = parser.Parse(classDiagramLocation);
+
+    foreach (var key in siFiles.Keys)
+    {
+		 var siContent = siFiles[key];
+		manager.StartNewFile(key + ".si");
+		#><#=siContent #><#
+		manager.EndBlock();
+    }
+#>
+
+<#
+	manager.Process(true);
+#>

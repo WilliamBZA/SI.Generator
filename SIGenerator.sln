@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGenerator.Tests", "SIGene
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGenerator.Parser", "SIGenerator.Parser\SIGenerator.Parser.csproj", "{44C66216-2CD5-4F29-9243-18DD9ACB9BF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGenerator.T4", "SIGenerator.T4\SIGenerator.T4.csproj", "{1C1898D0-E389-41C1-B955-97DF06A76600}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{44C66216-2CD5-4F29-9243-18DD9ACB9BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44C66216-2CD5-4F29-9243-18DD9ACB9BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44C66216-2CD5-4F29-9243-18DD9ACB9BF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C1898D0-E389-41C1-B955-97DF06A76600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C1898D0-E389-41C1-B955-97DF06A76600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C1898D0-E389-41C1-B955-97DF06A76600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C1898D0-E389-41C1-B955-97DF06A76600}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,32 @@
+SERVER @dn74
+CONNECT fsrvd00/f1nsur3
+
+TABLESPACE fsrvt001
+
+TABLE PL_AccountHolders
+    RecordLegId INT
+    ContactName CHAR(10) NULL
+    ContactSurname CHAR(10) NULL
+    EmailAddress CHAR(120) NULL
+    FaxNumber CHAR(15) NULL
+    TelephoneNumber CHAR(15) NULL
+    PhysicalAddressId INT NULL
+    PostalAddressId INT NULL
+
+KEY pk01 PRIMARY
+    RecordLegId
+
+KEY key01 UNIQUE
+    PhysicalAddressId
+
+KEY key02 UNIQUE
+    PostalAddressId
+
+GRANT SELECT INSERT DELETE UPDATE TO PUBLIC
+
+PROC Insert
+PROC Update
+PROC SelectOne
+PROC DeleteOne
+PROC Exists
+PROC SelectAll
